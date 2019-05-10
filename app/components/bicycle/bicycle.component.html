@@ -1,0 +1,25 @@
+
+
+
+<div class="col-md-12 mt-4">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="list-group">
+          <a class="list-group-item" [ngClass]="{active:selectedTab===item.bomType}"
+            *ngFor="let item of bomHeaders; let i = index"
+            (click)="getClickHeaders(item.bomId,item.bomType)">{{item.bomType}}</a>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <img src="../../assets/icon/Bike-Info.jpg" class="imageClass" />
+      </div>
+
+      <div class="col-md-2">
+        <div class="list-group">
+          <a class="list-group-item" *ngFor="let itemDetail of bomDetails; let i = index">{{itemDetail.materialDesc}}
+            <input type="checkbox"></a>
+        </div>
+      </div>
+    </div>
+</div>
+
