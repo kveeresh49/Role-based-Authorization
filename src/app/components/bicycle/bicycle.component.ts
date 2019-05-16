@@ -1,5 +1,4 @@
 import { Component, OnInit, createPlatform } from '@angular/core';
-import { BOMHeader, BomDetails } from 'src/app/model/user';
 import { BikeserviceService } from 'src/app/services/bikeservice.service';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 @Component({
@@ -9,104 +8,67 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class BicycleComponent implements OnInit {
 
-  bomHeaders: BOMHeader[] = [];
+  bomHeaders = [];
   bomDetails: any;
   itemselectedTab: any;
   selectedTab: any;
+  orderFlag:boolean;
   cycleForm: FormGroup;
   cycleRadioButtonList: FormArray;
-  mySecondForm:FormGroup;
-  radioButtons:FormArray
+  mySecondForm: FormGroup;
+  radioButtons: FormArray
   items: FormArray;
+  bomHeaderDetails: any;
+  options:any;
+  myvalue:any;
 
-  constructor(private fb: FormBuilder,private bikeService: BikeserviceService){}
+
+  constructor(private fb: FormBuilder, private bikeService: BikeserviceService) { }
 
   ngOnInit() {
     this.loadAllHeaders();
-   // this.createForm();
-   this.createSecondForm()
+
   }
-
-
-  createForm() {
-    this.cycleForm = this.fb.group({
-      Handle: new FormControl(),
-      Forks: new FormControl(),
-      Tyre: new FormControl(),
-      Seat:new FormControl(),
-      Chain:new FormControl(),
-      Pedals:new FormControl(),
-      Frames:new FormControl(),
-      Wheels :'',
-      Freewheels:'',
-      cycleRadioButtonList: this.fb.array([]),
-
-    });
-  }
-
-
-  createSecondForm() {
-    this.mySecondForm =  this.fb.group({
-      detailId:'',
-      bomId:'',
-      radioButtons : this.fb.array([])
-    });
-  }
-
-  public itemRows(val){
-    const control = <FormArray>this.mySecondForm.get('radioButtons');
-     val.map(el => {
-      let x =  this.fb.group({
-        hasInnerBOM: el.hasInnerBOM,
-        bomId :el.bomId,
-        detailId:el.detailId,
-        materialId:el.materialId,
-        materialDesc:el.materialDesc,
-        quantity:el.quantity
-        });
-        control.push(x);
-     })
-
-   }
-
 
   // loading All Headers Left side of Cycle
   loadAllHeaders() {
     this.bikeService.loadAllHeaders().subscribe((data) => {
-      this.bomHeaders = data;
+      this.bomHeaderDetails = data;
+      this.selectedTab = this.bomHeaderDetails.headerMasterlist[0].bomType;
+      this.myvalue = this.bomHeaderDetails.headerMasterlist[0].bomId;
+      console.log(data);
     });
   }
 
-  // Based on Id Load cyble details
-  getClickHeaders(itemId, itemType) {
-    this.selectedTab = itemType;
-    this.bikeService.getSubHeaders(itemId).subscribe((data) => {
-      this.bomDetails = data;
-      while(this.mySecondForm.controls.radioButtons.controls.length !==0) {
-        this.mySecondForm.controls.radioButtons.removeAt(0);
+  getClickHeaders(bomId,bomType) {
+    this.myvalue = bomId;
+    this.selectedTab = bomType;
+    console.log('bomId',bomId);
+    console.log('bomType',bomType);
+  }
+
+  getOrderVal(item,detail) {
+    item.listDetails.forEach((itm,idx) => {
+
+      if(itm.materialDesc === detail.materialDesc) {
+        detail.order = true;
+        this.orderFlag = true;
+      } else {
+        itm.order = false;
+        item.listDetails[idx].order = false;
       }
 
-      this.itemRows(this.bomDetails);
     });
 
   }
 
-
-  myClick(){
-    console.log
+  submitBomHeaders() {
+    this.bomHeaderDetails.user.username = JSON.parse(sessionStorage.currentUser).username;
+    console.log(this.orderFlag);
+    this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
+      console.log(data)
+    })
   }
-  /*
-
-  return this.fb.group ({
-    'bom.id': '',
-    'bom.ty':formControl',
-    checkBox :FormArray
-
-  })
-
-  */
-
-
 }
 
 
