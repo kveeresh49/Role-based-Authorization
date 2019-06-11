@@ -51,11 +51,9 @@ export class BicycleComponent implements OnInit {
 
 
 getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
-
   bomHeaderDetails.headerMasterlist.forEach((data) => {
     if(data.bomId == myvalue) {
     console.log(data.listDetails)
-
     this.subHeader = data.listDetails;
   }
 });
@@ -64,13 +62,12 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
 
   getOrderVal(item,detail,imageUrl) {
     item.listDetails.forEach((itm,idx) => {
-
       if(itm.materialDesc === detail.materialDesc) {
         detail.order = true;
         this.orderFlag = true;
-        this.imageUrls.push(imageUrl)
+        this.imageUrls.push({'imageUrl':imageUrl,'materialDesc':itm.materialDesc})
       } else {
-        this.imageUrls.splice(imageUrl,idx)
+        this.imageUrls.slice(idx,1)
         itm.order = false;
         item.listDetails[idx].order = false;
       }
