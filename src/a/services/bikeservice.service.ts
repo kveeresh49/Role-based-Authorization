@@ -21,9 +21,4 @@ export class BikeserviceService {
   saveOrderDetails(item) {
     return this.http.post(this.staticURL+ '/bomOrders', item)
   }
-
-  getAllOrderDetais(){
-    return this.http.get(this.staticURL+ '/bomOrders');
-    //
-  }
 }

@@ -11,16 +11,14 @@ import {MatCardModule} from '@angular/material/card';
 import { BicycleComponent } from './components/bicycle/bicycle.component';
 import { AllproductsComponent } from './components/allproducts/allproducts.component';
 import { CommonModule } from '@angular/common';
-import { OrderComponent } from './components/order/order.component';
-import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     BicycleComponent,
-    AllproductsComponent,
-    OrderComponent
+    AllproductsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +28,6 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    ToastrModule.forRoot(),
     // Angular material
     MatCardModule,
   ],
