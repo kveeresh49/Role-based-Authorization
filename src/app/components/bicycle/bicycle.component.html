@@ -99,7 +99,10 @@
     </div>
   </div>
   <div class="col-md-6">
-    <img src="../../assets/icon/Bike-Info.jpg" class="imageClass" />
+    <div class="col-md-6" *ngIf="this.imageUrls.length<1">
+        <img src="https://www.sccpre.cat/mypng/full/167-1673331_bicycle-bike-cycle-old-transport-transportation-old-bicycle.png" class="imageClass" />
+    </div>
+
   </div>
 
 
@@ -121,12 +124,12 @@
         <div *ngIf="orderDetails.bomId == myvalue">
           <div class="list-group-item">
             <label>
-              <div class="custom-control custom-radio">
-                <input type="radio" (change)="getOrderVal(item,orderDetails,orderDetails.imageUrl)" name="{{orderDetails.materialDesc + i}}"
+              <div class="custom-control custom-radio" style="z-index: 99999999">
+                <input type="radio" style="z-index: 99999999" (change)="getOrderVal(item,orderDetails,orderDetails.imageUrl)" name="{{orderDetails.materialDesc + i}}"
                   [checked]="orderDetails.order ? orderDetails.order : false" />
                   <label>
                       {{orderDetails.materialDesc}}
-                      <img [src]="orderDetails.imageUrl" class="imageClass" />
+                      <!-- <img [src]="orderDetails.imageUrl" class="imageClass" /> -->
                     </label>
               </div>
             </label>
@@ -136,4 +139,12 @@
     </div>
   </div>
   <button  class="btn-success" style="margin-left: 47px;" *ngIf="orderFlag" (click)="submitBomHeaders()">Submit</button>
+  <div>
+      <label *ngIf="this.imageUrls?.length">
+            <div *ngFor="let imageUrls of this.imageUrls">
+                <img class="imageClass2" [src]="imageUrls.imageUrl"/>
+              </div>
+      </label>
+    </div>
 </div>
+
