@@ -21,7 +21,8 @@ export class BicycleComponent implements OnInit {
   bomHeaderDetails: any;
   options:any;
   myvalue:any;
-
+  subHeader: any;
+ imageUrls = [];
 
   constructor(private fb: FormBuilder, private bikeService: BikeserviceService) { }
 
@@ -35,25 +36,41 @@ export class BicycleComponent implements OnInit {
     this.bikeService.loadAllHeaders().subscribe((data) => {
       this.bomHeaderDetails = data;
       this.selectedTab = this.bomHeaderDetails.headerMasterlist[0].bomType;
-      this.myvalue = this.bomHeaderDetails.headerMasterlist[0].bomId;
+     // this.myvalue = this.bomHeaderDetails.headerMasterlist[0].bomId;
       console.log(data);
     });
   }
 
-  getClickHeaders(bomId,bomType) {
+  getClickHeaders(bomId,bomType,imageUrl) {
     this.myvalue = bomId;
+   // this.getSubLIstDEtails(this.myvalue,this.bomHeaderDetails)
     this.selectedTab = bomType;
     console.log('bomId',bomId);
     console.log('bomType',bomType);
   }
 
-  getOrderVal(item,detail) {
+
+getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
+
+  bomHeaderDetails.headerMasterlist.forEach((data) => {
+    if(data.bomId == myvalue) {
+    console.log(data.listDetails)
+
+    this.subHeader = data.listDetails;
+  }
+});
+}
+
+
+  getOrderVal(item,detail,imageUrl) {
     item.listDetails.forEach((itm,idx) => {
 
       if(itm.materialDesc === detail.materialDesc) {
         detail.order = true;
         this.orderFlag = true;
+        this.imageUrls.push(imageUrl)
       } else {
+        this.imageUrls.splice(imageUrl,idx)
         itm.order = false;
         item.listDetails[idx].order = false;
       }
