@@ -102,17 +102,31 @@
     <img src="../../assets/icon/Bike-Info.jpg" class="imageClass" />
   </div>
 
+
+  <!-- <div *ngFor="let subHeaderItems of subHeader; let j= index">
+ <label>
+              <div class="custom-control custom-radio">
+                <input type="radio" (change)="getOrderVal(subHeaderItems,subHeader)" name="{{subHeaderItems.materialDesc + j}}"
+                  [checked]="subHeaderItems.order ? subHeaderItems.order : false" />
+                  <label>
+                      {{subHeaderItems.materialDesc}}
+                    </label>
+              </div>
+            </label>
+  </div> -->
+
   <div class="col-md-3">
     <div class="list-group" *ngFor="let item of bomHeaderDetails?.headerMasterlist; let i = index">
       <div *ngFor="let orderDetails of item?.listDetails; let j= index">
-        <div *ngIf="orderDetails.bomId === myvalue">
+        <div *ngIf="orderDetails.bomId == myvalue">
           <div class="list-group-item">
             <label>
               <div class="custom-control custom-radio">
-                <input type="radio" (change)="getOrderVal(item,orderDetails)" name="{{orderDetails.materialDesc + i}}"
+                <input type="radio" (change)="getOrderVal(item,orderDetails,orderDetails.imageUrl)" name="{{orderDetails.materialDesc + i}}"
                   [checked]="orderDetails.order ? orderDetails.order : false" />
                   <label>
                       {{orderDetails.materialDesc}}
+                      <img [src]="orderDetails.imageUrl" class="imageClass" />
                     </label>
               </div>
             </label>
