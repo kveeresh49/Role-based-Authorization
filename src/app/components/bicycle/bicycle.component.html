@@ -1,96 +1,3 @@
-<!-- <div class="col-md-12 mt-4">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="list-group">
-          <a class="list-group-item" [ngClass]="{active:selectedTab===item.bomType}"
-            *ngFor="let item of bomHeaders; let i = index"
-            (click)="getClickHeaders(item.bomId,item.bomType)">{{item.bomType}}</a>
-        </div>
-      </div>
-      <div class="col-md-7">
-        <img src="../../assets/icon/Bike-Info.jpg" class="imageClass" />
-      </div>
-
-      <div class="col-md-2">
-        <div class="list-group">
-          <a class="list-group-item" *ngFor="let itemDetail of bomDetails; let i = index">{{itemDetail.materialDesc}}
-            <input type="radio"></a>
-        </div>
-      </div>
-    </div>
-</div> -->
-
-
-
-
-<!-- <div class="col-md-12">
-<form [formGroup]="cycleForm">
-
-  <div *ngFor="let item of bomHeaders; let i = index">
-    <div *ngIf="item.bomType !== 'Gear Shifters'">
-      <div>
-          <label [for]="item.bomType">
-              {{item.bomType}}
-           </label>
-          <input type="text" [hidden]="true" [id]="item.bomType" (click)="getClickHeaders(item.bomId,item.bomType)" type=text [formControlName]="item.bomType" name="item.bomType">
-
-      </div>
-        <div formArrayName="credentials" *ngFor="let comp of cycleForm.get('credentials').controls?.value; let i=index">
-            <div [formGroupName]="i">
-                <label>Company Name: </label>
-                <input [formControlName]="i" />
-              </div>
-
-        </div>
-        </div>
-
-  </div>
-
-
-  </form>
-
-  {{cycleForm.getRawValue() | json}}
-
-</div> -->
-
-
-<!-- <div class="col-md-12 mt-4">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="list-group">
-        <a class="list-group-item" [ngClass]="{active:selectedTab===item.bomType}"
-          *ngFor="let item of bomHeaders; let i = index"
-          (click)="getClickHeaders(item.bomId,item.bomType)">{{item.bomType}}</a>
-      </div>
-    </div>
-    <div class="col-md-7 col-sm-7">
-        <img src="../../assets/icon/Bike-Info.jpg" class="imageClass" />
-      </div>
-    <div class="col-md-2" >
-      <form [formGroup]="mySecondForm">
-        <div >
-          <div formArrayName="radioButtons" *ngFor="let order of mySecondForm.get('radioButtons').controls; let i = index">
-              <div class="form-group"  [formGroupName]="i">
-                  <label for="bomDetails[i]?.bomId">{{bomDetails[i]?.materialDesc}}</label>
-                  <input type="radio" id="bomDetails[i]?.bomId"
-                  formControlName="hasInnerBOM"
-                  >
-                  </div>
-          </div>
-
-        </div>
-
-      </form>
-    </div>
-
-  </div>
-
- {{mySecondForm?.getRawValue() | json}}
-
-</div> -->
-
-
-
 
 <div class="row">
   <div class="col-md-3">
@@ -98,25 +5,16 @@
       <a class="list-group-item" [ngClass]="{active:selectedTab===item.bomType}" (click)="getClickHeaders(item.bomId,item.bomType)">{{item.bomType}}</a>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="col-md-6" *ngIf="this.imageUrls.length<1">
+  <div class="col-md-6" *ngIf="bomHeaderDetails?.headerMasterlist">
+    <div>
+      <h4>custmise cycle</h4>
+    </div>
+    <div *ngIf="this.imageUrls.length<1">
         <img src="https://www.sccpre.cat/mypng/full/167-1673331_bicycle-bike-cycle-old-transport-transportation-old-bicycle.png" class="imageClass" />
     </div>
 
   </div>
 
-
-  <!-- <div *ngFor="let subHeaderItems of subHeader; let j= index">
- <label>
-              <div class="custom-control custom-radio">
-                <input type="radio" (change)="getOrderVal(subHeaderItems,subHeader)" name="{{subHeaderItems.materialDesc + j}}"
-                  [checked]="subHeaderItems.order ? subHeaderItems.order : false" />
-                  <label>
-                      {{subHeaderItems.materialDesc}}
-                    </label>
-              </div>
-            </label>
-  </div> -->
 
   <div class="col-md-3">
     <div class="list-group" *ngFor="let item of bomHeaderDetails?.headerMasterlist; let i = index">
@@ -125,7 +23,7 @@
           <div class="list-group-item">
             <label>
               <div class="custom-control custom-radio" style="z-index: 99999999">
-                <input type="radio" style="z-index: 99999999" (change)="getOrderVal(item,orderDetails,orderDetails.imageUrl)" name="{{orderDetails.materialDesc + i}}"
+                <input type="radio" style="z-index: 99999999" (change)="getOrderVal(item,orderDetails,orderDetails.imageUrl,orderDetails.detailId,j)" name="{{orderDetails.materialDesc + i}}"
                   [checked]="orderDetails.order ? orderDetails.order : false" />
                   <label>
                       {{orderDetails.materialDesc}}

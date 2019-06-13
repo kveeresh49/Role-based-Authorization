@@ -36,7 +36,7 @@ export class BicycleComponent implements OnInit {
     this.bikeService.loadAllHeaders().subscribe((data) => {
       this.bomHeaderDetails = data;
       this.selectedTab = this.bomHeaderDetails.headerMasterlist[0].bomType;
-     // this.myvalue = this.bomHeaderDetails.headerMasterlist[0].bomId;
+     this.myvalue = this.bomHeaderDetails.headerMasterlist[0].bomId;
       console.log(data);
     });
   }
@@ -60,20 +60,38 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
 }
 
 
-  getOrderVal(item,detail,imageUrl) {
+  getOrderVal(item,detail,imageUrl,detailId,index) {
     item.listDetails.forEach((itm,idx) => {
       if(itm.materialDesc === detail.materialDesc) {
         detail.order = true;
         this.orderFlag = true;
-        this.imageUrls.push({'imageUrl':imageUrl,'materialDesc':itm.materialDesc})
+        //this.imageUrls.push({'imageUrl':imageUrl,'materialDesc':itm.materialDesc,'index':index,'detailId':detailId})
       } else {
-        this.imageUrls.slice(idx,1)
+       // this.imageUrls.slice(idx,1)
         itm.order = false;
         item.listDetails[idx].order = false;
       }
-
     });
+      this.getimages(this.imageUrls,this.bomHeaderDetails)
+  }
 
+  getimages(imageUrl,bomheaders){
+
+  //  console.log(imageUrl);
+   // console.log(bomheaders);
+    this.imageUrls = [];
+    bomheaders.headerMasterlist.forEach((data,index) => {
+        if(data.listDetails.length !== undefined && data.listDetails.length !==0) {
+          data.listDetails.forEach(element => {
+            if(element.order == true){
+              this.imageUrls.push({'imageUrl':element.imageUrl});
+            }
+          });
+
+        }
+    })
+
+    console.log(this.imageUrls);
   }
 
   submitBomHeaders() {
