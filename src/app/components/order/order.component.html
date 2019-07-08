@@ -36,8 +36,12 @@
                 <div class="col-md-12">
                   <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
                     <div class="row">
-                      <div class="col-md-2"> <img style="width:100px;height: 100px;"
-                          src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
+                      <div class="col-md-2">
+                          <div  *ngFor="let imageUrls of productJson.img">
+                              <img  class="imageClass2" [src]="imageUrls.imageUrl"/>
+                            </div>
+                      </div>
+
                       <div class="col-md-3">Handel 1</div>
                       <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="quantity"  mdbInput></div>
                         <div class="col-md-2">{{date}}</div>
