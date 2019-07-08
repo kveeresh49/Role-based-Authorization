@@ -97,9 +97,17 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
   submitBomHeaders() {
     this.bomHeaderDetails.user.username = JSON.parse(sessionStorage.currentUser).username;
     console.log(this.orderFlag);
-    this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
-      console.log(data)
-    })
+
+    console.log(this.bomHeaderDetails);
+    this.bikeService.getOrderScreen(this.bomHeaderDetails);
+    // this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
+    //   console.log(data);
+    // })
+  }
+
+  reset() {
+    this.ngOnInit();
+    this.imageUrls = [];
   }
 }
 
