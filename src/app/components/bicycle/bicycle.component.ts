@@ -31,6 +31,7 @@ export class BicycleComponent implements OnInit {
     this.loadAllHeaders();
 
 
+
   }
 
   // loading All Headers Left side of Cycle
@@ -101,24 +102,12 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
     console.log(this.orderFlag);
 
     console.log(this.bomHeaderDetails);
-<<<<<<< HEAD
     //this.bikeService.getOrderScreen(this.bomHeaderDetails);
     this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
-      console.log(data);
-      this.toastr.show('order is done');
-      this.ngOnInit();
-    })
-=======
-    this.bikeService.getOrderScreen(this.bomHeaderDetails);
-    // this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
-    //   console.log(data);
-    // })
-  }
 
-  reset() {
+    })
+    this.toastr.success('Product is Ordered')
     this.ngOnInit();
-    this.imageUrls = [];
->>>>>>> 04bd3c609e5ba6c3bd3b6f93d5fa9b6e6218e671
   }
 
   reset() {
