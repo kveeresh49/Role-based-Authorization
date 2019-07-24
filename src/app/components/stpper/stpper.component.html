@@ -1,0 +1,40 @@
+<div class="col-md-12">
+  <mat-horizontal-stepper class="mycalssWidth" labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>My Cart Items</ng-template>
+
+        <app-order (valueChange)='displayCounter($event)'></app-order>
+
+        <div>
+          <button mat-button matStepperNext class="col-md-2 mybtn" *ngIf="!priventFlag">Place the Order</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" optional>
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <address>
+          Shipping Address <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+          Visit us at:<br>
+          Example.com<br>
+          Box 564, Disneyland<br>
+          USA
+        </address>
+        <div>
+          <button mat-button matStepperPrevious class="col-md-2 mybtn">Back</button>
+          <button mat-button matStepperNext class="col-md-2 mybtn">Proceed</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      Order Placed
+      <div>
+        <button mat-button matStepperPrevious class="col-md-2 mybtn">Back</button>
+        <button mat-button (click)="stepper.reset()" class="col-md-2 mybtn">Go to Order Page</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, createPlatform } from '@angular/core';
 import { BikeserviceService } from 'src/app/services/bikeservice.service';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-bicycle',
   templateUrl: './bicycle.component.html',
@@ -24,10 +25,11 @@ export class BicycleComponent implements OnInit {
   subHeader: any;
  imageUrls = [];
 
-  constructor(private fb: FormBuilder, private bikeService: BikeserviceService) { }
+  constructor(private fb: FormBuilder, private bikeService: BikeserviceService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.loadAllHeaders();
+
 
   }
 
@@ -97,9 +99,19 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
   submitBomHeaders() {
     this.bomHeaderDetails.user.username = JSON.parse(sessionStorage.currentUser).username;
     console.log(this.orderFlag);
+
+    console.log(this.bomHeaderDetails);
+    //this.bikeService.getOrderScreen(this.bomHeaderDetails);
     this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
-      console.log(data)
+      console.log(data);
+      this.toastr.show('order is done');
+      this.ngOnInit();
     })
+  }
+
+  reset() {
+    this.ngOnInit();
+    this.imageUrls = [];
   }
 }
 

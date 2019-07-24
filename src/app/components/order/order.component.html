@@ -1,69 +1,81 @@
-<div *ngIf="productJson.length ==0" class="mt-10">
+<!-- <div *ngIf="productJson.length ==0" class="mt-10">
   <div class="alert alert-primary" role="alert">
     No Products are Available
   </div>
-</div>
+</div> -->
 
-<div class="col-md-12" *ngIf="productJson.length ==0">
+<!-- <div class="col-md-12" *ngIf="productJson.length ==0">
   <mat-card class="cardwholesaler mt-3">
     Add More Products
     <i class="arrow right mt-2"></i>
   </mat-card>
-</div>
+</div> -->
 
 
-<div class="col-md-12" *ngIf="productJson.length !==0">
+<div class="col-md-12" *ngIf="orderJSON.length !==0">
   <div class="row">
 
     <div class="col-md-11 mt-3">
 
       <div class="col-md-12">
-          <div class="col-md-12">
-              <div class="row">
-                  <div class="col-md-8 ml-5"><b>My Cart ({{productJson.length}} Items</b>)</div>
-                  <div class="col-md-3"><b>Total: </b></div>
-              </div>
+        <div class="col-md-12">
+          <div class="row">
+            <!-- <div class="col-md-8 ml-5"><b>My Cart ({{productJson.length}} Items</b></div> -->
+            <div class="col-md-8 ml-5"><b>My Cart Items</b></div>
+            <div class="col-md-3"><b>Total: {{totalSumValue}} </b></div>
+          </div>
 
-              <div class="row mt-5" style="font-size: 13px;">
-                <div class="col-md-2"></div>
-                <div class="col-md-3">Product Name/Code/Pack</div>
-                <div class="col-md-2">Quantity</div>
-                <div class="col-md-2">Delivary Date</div>
-                <div class="col-md-1">Net price</div>
-                <div class="col-md-1">Delivered</div>
-              </div>
-              <div class="col-md-12 mt-1" *ngFor="let productJson of productJson;let i=index">
-                <div class="col-md-12">
-                  <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
-                    <div class="row">
-                      <div class="col-md-2"> <img style="width:100px;height: 100px;"
-                          src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                      <div class="col-md-3">Handel 1</div>
-                      <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="quantity"  mdbInput></div>
-                        <div class="col-md-2">{{date}}</div>
-                        <div class="col-md-1"> 200$</div>
-                        <div class="col-md-1">{{productJson.delivered}}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div style="cursor: pointer;    float: right !important;"
-                          (click)="removeItems(productJson,i)">
-                          Cancel
-                        </div>
+          <div class="row mt-5" style="font-size: 13px;">
+            <div class="col-md-2"></div>
+            <div class="col-md-3">Product Name/Code/Pack</div>
+            <div class="col-md-2">Quantity</div>
+            <div class="col-md-2">Ordered Date</div>
+            <div class="col-md-1">Net price</div>
+            <div class="col-md-1">Delivered</div>
+          </div>
+          <div class="col-md-12 mt-1" *ngFor="let productJson of orderJSON;let i=index">
+            <div class="col-md-12">
+              <mat-card class="a2">
+                <!-- <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}"> -->
+                <div class="row">
+                  <div class="col-md-2">
+                    <div *ngFor="let imageUrls of productJson.orderDetailsList">
+                      <div *ngIf="imageUrls.imageUrl != null">
+                          <img class="imageClass2" [src]="imageUrls.imageUrl" />
                       </div>
 
                     </div>
-                  </mat-card>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <mat-card class="cardwholesaler mt-3">
-                  Add More Products
-                  <i class="arrow right mt-2"></i>
-                </mat-card>
-              </div>
+                  </div>
 
+                  <div class="col-md-3">Ordered Custom Cycle {{i + 1}}</div>
+                  <div class="col-md-2">
+                      <input type="number"  style="width: 57%;" class="form-control"
+                      id="productJson.quantity"
+                      [(ngModel)]="productJson.quantity" value= "productJson.quantity" (ngModelChange)="changeOrder(productJson.quantity,i,$event)" name="productJson[i].quantity">
+                  </div>
+                  <div class="col-md-2">{{productJson.orderDate | date}}  </div>
+                  <div class="col-md-1"> {{productJson.price}}</div>
+                  <div class="col-md-2">{{productJson.deliveryDate | date }}  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div style="cursor: pointer;    float: right !important;">
+                    <button class="mybtn">Cancel Order</button>
+                    </div>
+                  </div>
+
+                </div>
+              </mat-card>
             </div>
+          </div>
+          <div class="col-md-12">
+            <mat-card class="cardwholesaler mt-3">
+              Add More Products
+              <i class="arrow right mt-2"></i>
+            </mat-card>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -71,3 +83,16 @@
   </div>
 
 </div>
+
+
+
+
+<!--- welcome the order-->
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+

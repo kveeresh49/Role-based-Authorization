@@ -13,6 +13,15 @@ import { AllproductsComponent } from './components/allproducts/allproducts.compo
 import { CommonModule } from '@angular/common';
 import { OrderComponent } from './components/order/order.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NewModelModule } from './myModel/new-model/new-model.module';
+import {MatStepperModule} from '@angular/material/stepper';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+} from '@angular/material';
+import { StpperComponent } from './components/stpper/stpper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     BicycleComponent,
     AllproductsComponent,
-    OrderComponent
+    OrderComponent,
+    StpperComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +43,11 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     // Angular material
     MatCardModule,
+    NewModelModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

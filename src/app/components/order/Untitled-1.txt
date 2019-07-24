@@ -1,0 +1,333 @@
+[
+    {
+        "user": {
+            "username": "sumitg",
+            "email": null,
+            "fullname": null,
+            "password": null,
+            "firstname": null,
+            "lastname": null,
+            "middlename": null,
+            "validstartdata": null,
+            "validenddate": null,
+            "usercol": null,
+            "addressline1": null,
+            "addressline2": null,
+            "addressline3": null,
+            "pin": null,
+            "countryid": null,
+            "countryname": null
+        },
+        "headerMasterlist": [
+            {
+                "bomId": "1001",
+                "bomType": "Handle",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Handle/Handle1.png",
+                "listDetails": [
+                    {
+                        "detailId": "2001",
+                        "bomId": 1001,
+                        "materialId": "5001",
+                        "materialDesc": "Handle 1",
+                        "componentId": "500",
+                        "componentDesc": "Handle Description 1",
+                        "quantity": "1.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "0",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Handle/Handle1.png",
+                        "order": false,
+                        "price" : 300
+                    },
+                    {
+                        "detailId": "2002",
+                        "bomId": 1001,
+                        "materialId": "5001",
+                        "materialDesc": "Handle 2",
+                        "componentId": "500",
+                        "componentDesc": "Handle Description 2",
+                        "quantity": "1.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "0",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Handle/Handle2.png",
+                        "order": true,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1002",
+                "bomType": "Forks",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/FORK/Fork1.png",
+                "listDetails": [
+                    {
+                        "detailId": "2010",
+                        "bomId": 1002,
+                        "materialId": "1002000",
+                        "materialDesc": "Fork 1",
+                        "componentId": "500",
+                        "componentDesc": "Fork Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/FORK/Fork1.png",
+                        "order": false,
+                        "price" : 300
+                    },
+                    {
+                        "detailId": "2011",
+                        "bomId": 1002,
+                        "materialId": "1002000",
+                        "materialDesc": "Fork 2",
+                        "componentId": "500",
+                        "componentDesc": "Fork Description 2",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/FORK/Fork2.png",
+                        "order": true,
+                        "price" : 300
+                    },
+                    {
+                        "detailId": "2013",
+                        "bomId": 1002,
+                        "materialId": "1002000",
+                        "materialDesc": "Fork 3",
+                        "componentId": "500",
+                        "componentDesc": "Fork Description 3",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/FORK/Fork3.png",
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1003",
+                "bomType": "Tyre",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Wheel/Wheel1.png",
+                "listDetails": [
+                    {
+                        "detailId": "2020",
+                        "bomId": 1003,
+                        "materialId": "1003001",
+                        "materialDesc": "Cycle Tyre 1",
+                        "componentId": "500",
+                        "componentDesc": "Tyre Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Wheel/Wheel1.png",
+                        "order": false,
+                        "price" : 300
+                    },
+                    {
+                        "detailId": "2021",
+                        "bomId": 1003,
+                        "materialId": "1003002",
+                        "materialDesc": "Cycle Tyre 2",
+                        "componentId": "500",
+                        "componentDesc": "Tyre Description 2",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Wheel/Wheel2.png",
+                        "order": true,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1004",
+                "bomType": "Seat",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/SEAT/Seat1.png",
+                "listDetails": [
+                    {
+                        "detailId": "2040",
+                        "bomId": 1004,
+                        "materialId": "1004001",
+                        "materialDesc": "Seat 1",
+                        "componentId": "500",
+                        "componentDesc": "Seat Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/SEAT/Seat1.png",
+                        "order": true,
+                        "price" : 300
+                    },
+                    {
+                        "detailId": "2041",
+                        "bomId": 1004,
+                        "materialId": "1004002",
+                        "materialDesc": "Seat 2",
+                        "componentId": "500",
+                        "componentDesc": "Seat Description 2",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/SEAT/Seat2.png",
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1005",
+                "bomType": "Chain",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Chain/Chain.png",
+                "listDetails": [
+                    {
+                        "detailId": "2050",
+                        "bomId": 1005,
+                        "materialId": "1005001",
+                        "materialDesc": "Chain 1",
+                        "componentId": "500",
+                        "componentDesc": "Chain Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Chain/Chain.png",
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1008",
+                "bomType": "Gear Shifters",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Gear/Gear.png",
+                "listDetails": [
+                    {
+                        "detailId": "2080",
+                        "bomId": 1008,
+                        "materialId": "1008001",
+                        "materialDesc": "Gear 1",
+                        "componentId": "500",
+                        "componentDesc": "Gear Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Gear/Gear.png",
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1009",
+                "bomType": "Wheels",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": null,
+                "listDetails": [
+                    {
+                        "detailId": "2090",
+                        "bomId": 1009,
+                        "materialId": "1009001",
+                        "materialDesc": "Wheel 1",
+                        "componentId": "500",
+                        "componentDesc": "Wheel Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": null,
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            },
+            {
+                "bomId": "1010",
+                "bomType": "Freewheels",
+                "plantId": "1000",
+                "plantDesc": "Mumbai Plant",
+                "bomGroupId": "100",
+                "bomGroupDesc": "Production BOM Group",
+                "bomUsage": "Production BOM",
+                "startDate": 1549065600000,
+                "endDate": 253402214400000,
+                "imageUrl": null,
+                "listDetails": [
+                    {
+                        "detailId": "2100",
+                        "bomId": 1010,
+                        "materialId": "1010001",
+                        "materialDesc": "Freewheels 1",
+                        "componentId": "500",
+                        "componentDesc": "Freewheels Description 1",
+                        "quantity": "2.5",
+                        "unitOfQuantity": "Number",
+                        "hasInnerBOM": "false",
+                        "imageUrl": null,
+                        "order": false,
+                        "price" : 300
+                    }
+                ]
+            }
+        ],
+        "numberofOrders" : null,
+        "img": [
+            {
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Handle/Handle2.png"
+            },
+            {
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/FORK/Fork2.png"
+            },
+            {
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/Wheel/Wheel2.png"
+            },
+            {
+                "imageUrl": "https://s3.us-east-2.amazonaws.com/bike-image/images/SEAT/Seat1.png"
+            }
+        ]
+    }
+]

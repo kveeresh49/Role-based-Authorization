@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class BikeserviceService {
 
   private staticURL:String = "http://bom-configuration-service.us-east-2.elasticbeanstalk.com";
+  public orderImg = [];
   constructor(private http: HttpClient) { }
 
   loadAllHeaders():Observable<any> {
@@ -25,5 +26,14 @@ export class BikeserviceService {
   getAllOrderDetais(){
     return this.http.get(this.staticURL+ '/bomOrders');
     //
+  }
+
+  getOrders1() {
+    return this.http.get(this.staticURL+ '/bomOrders/userSpecificOrders/sumitg');
+  }
+
+  getOrderScreen(bomOrders) {
+    this.orderImg.push(bomOrders);
+    console.log(this.orderImg);
   }
 }

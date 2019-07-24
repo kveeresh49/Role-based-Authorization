@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+ // overflow-y: hidden;
+}
+
+.mat-stepper-horizontal-line {
+  border-top-color: rgba(0,0,0,.12);
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical {
+  background-color: #fff !important;
+  color: #424242 !important;
+}
+
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color: #424242 !important;
+}
+
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: rgba(0,0,0,.54);
+  color: #fff;
+}
+
+
+.mycalssWidth {
+  display: block;
+  width: 90%;
+  margin-left: 38px;
+  padding-top: 26px;
+}
