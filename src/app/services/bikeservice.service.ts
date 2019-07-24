@@ -28,10 +28,13 @@ export class BikeserviceService {
     //
   }
 
+<<<<<<< HEAD
   getOrders1() {
     return this.http.get(this.staticURL+ '/bomOrders/userSpecificOrders/sumitg');
   }
 
+=======
+>>>>>>> 04bd3c609e5ba6c3bd3b6f93d5fa9b6e6218e671
   getOrderScreen(bomOrders) {
     this.orderImg.push(bomOrders);
     console.log(this.orderImg);

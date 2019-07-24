@@ -24,6 +24,7 @@ export class OrderComponent implements OnInit {
   secondFormGroup: FormGroup;
   public productJson: any;
   public quantity = 3;
+<<<<<<< HEAD
   @Output() valueChange = new EventEmitter();
   @Input() preventFlag: boolean = false;
   public date = new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear();
@@ -90,6 +91,33 @@ export class OrderComponent implements OnInit {
     //       }
     //   });
     // });
+=======
+  public x = new Date();
+  public date = new Date().getDate() + '/' + new Date().getMonth() +'/'+ new Date().getFullYear();
+  imageUrls: any[];
+  constructor(private bikeService: BikeserviceService,private toastr: ToastrService) { }
+
+  ngOnInit() {
+  //  console.log(this.bikeService.orderImg);
+    this.productJson = this.bikeService.orderImg;
+
+
+
+    this.productJson.forEach((element,index) => {
+      this.imageUrls = [];
+      element.headerMasterlist.forEach((data,index1) => {
+        if(data.listDetails.length !== undefined && data.listDetails.length !==0) {
+
+                data.listDetails.forEach(element => {
+                  if(element.order == true){
+                    this.imageUrls.push({'imageUrl':element.imageUrl});
+                  }
+                });
+        }
+      })
+      this.productJson[index].img = this.imageUrls;
+    });
+>>>>>>> 04bd3c609e5ba6c3bd3b6f93d5fa9b6e6218e671
     // this.bikeService.orderImg[0].headerMasterlist.forEach((data,index) => {
     //     if(data.listDetails.length !== undefined && data.listDetails.length !==0) {
     //       data.listDetails.forEach(element => {
@@ -100,6 +128,7 @@ export class OrderComponent implements OnInit {
 
     //     }
     // })
+<<<<<<< HEAD
 
 
 
@@ -140,6 +169,9 @@ export class OrderComponent implements OnInit {
       }
     });
 
+=======
+   console.log(this.productJson);
+>>>>>>> 04bd3c609e5ba6c3bd3b6f93d5fa9b6e6218e671
   }
 
   getAllOderDetails() {
