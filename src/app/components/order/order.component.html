@@ -18,7 +18,6 @@
     <div class="col-md-11 mt-3">
 
       <div class="col-md-12">
-<<<<<<< HEAD
         <div class="col-md-12">
           <div class="row">
             <!-- <div class="col-md-8 ml-5"><b>My Cart ({{productJson.length}} Items</b></div> -->
@@ -43,44 +42,6 @@
                     <div *ngFor="let imageUrls of productJson.orderDetailsList">
                       <div *ngIf="imageUrls.imageUrl != null">
                           <img class="imageClass2" [src]="imageUrls.imageUrl" />
-=======
-          <div class="col-md-12">
-              <div class="row">
-                  <div class="col-md-8 ml-5"><b>My Cart ({{productJson.length}} Items</b>)</div>
-                  <div class="col-md-3"><b>Total: </b></div>
-              </div>
-
-              <div class="row mt-5" style="font-size: 13px;">
-                <div class="col-md-2"></div>
-                <div class="col-md-3">Product Name/Code/Pack</div>
-                <div class="col-md-2">Quantity</div>
-                <div class="col-md-2">Delivary Date</div>
-                <div class="col-md-1">Net price</div>
-                <div class="col-md-1">Delivered</div>
-              </div>
-              <div class="col-md-12 mt-1" *ngFor="let productJson of productJson;let i=index">
-                <div class="col-md-12">
-                  <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
-                    <div class="row">
-                      <div class="col-md-2">
-                          <div  *ngFor="let imageUrls of productJson.img">
-                              <img  class="imageClass2" [src]="imageUrls.imageUrl"/>
-                            </div>
-                      </div>
-
-                      <div class="col-md-3">Handel 1</div>
-                      <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="quantity"  mdbInput></div>
-                        <div class="col-md-2">{{date}}</div>
-                        <div class="col-md-1"> 200$</div>
-                        <div class="col-md-1">{{productJson.delivered}}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div style="cursor: pointer;    float: right !important;"
-                          (click)="removeItems(productJson,i)">
-                          Cancel
-                        </div>
->>>>>>> 04bd3c609e5ba6c3bd3b6f93d5fa9b6e6218e671
                       </div>
 
                     </div>
@@ -99,7 +60,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div style="cursor: pointer;    float: right !important;">
-                    <button class="mybtn">Cancel Order</button>
+                    <button class="mybtn" (click)="removeItems(productJson,i)">Cancel Order</button>
                     </div>
                   </div>
 
