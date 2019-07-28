@@ -141,8 +141,11 @@
       </div>
     </div>
   </div>
-  <button  class="btn-success" style="margin-left: 47px;" *ngIf="orderFlag" (click)="submitBomHeaders()">Submit</button>
-  <button  class="btn-success" style="margin-left: 40px;" *ngIf="orderFlag" (click)="reset()">Reset</button>
+  <div class="btnClass col-md-12" style="margin-left: 56%">
+      <button  class="btn-success col-md-1 mr-4 btnButtons"  *ngIf="this.imageUrls.length !=0" (click)="submitBomHeaders()">Submit</button>
+      <button  class="btn btn-secondary col-md-1 ml-4 btnButtons"  *ngIf="this.imageUrls.length !=0" (click)="reset()">Reset</button>
+
+  </div>
   <div>
       <label *ngIf="this.imageUrls?.length">
             <div *ngFor="let imageUrls of this.imageUrls">
@@ -152,3 +155,15 @@
     </div>
 </div>
 
+
+<modal id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+          <div class="modelCss">
+              <p><strong>Your Order is Created<span class="text-primary">"Check in Orders"</span> </strong></p>
+          </div>
+            <button class="p-1 btn btn-secondary" (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+  </modal>

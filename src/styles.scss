@@ -37,3 +37,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   margin-left: 38px;
   padding-top: 26px;
 }
+
+
+.mat-step-label.mat-step-label-active.mat-step-label-selected {
+  color: blueviolet !important;
+}
+

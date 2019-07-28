@@ -22,6 +22,9 @@ import {
   MatRippleModule
 } from '@angular/material';
 import { StpperComponent } from './components/stpper/stpper.component';
+import { ModalComponent } from './components/text/text.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,9 @@ import { StpperComponent } from './components/stpper/stpper.component';
     BicycleComponent,
     AllproductsComponent,
     OrderComponent,
-    StpperComponent
+    StpperComponent,
+    ModalComponent,
+   // ObjserbelsComponent
   ],
   imports: [
     BrowserModule,

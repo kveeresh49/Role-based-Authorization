@@ -100,20 +100,41 @@ getSubLIstDEtails(myvalue,bomHeaderDetails,imageUrl) {
   submitBomHeaders() {
     this.bomHeaderDetails.user.username = JSON.parse(sessionStorage.currentUser).username;
     console.log(this.orderFlag);
-
     console.log(this.bomHeaderDetails);
     //this.bikeService.getOrderScreen(this.bomHeaderDetails);
     this.bikeService.saveOrderDetails(this.bomHeaderDetails).subscribe((data)=> {
-
-    })
-    this.toastr.success('Product is Ordered')
+      console.log(data)
+    });
+    this.imageUrls = [];
     this.ngOnInit();
+    this.toastr.success('Product is Ordered');
+    this.openModal('custom-modal-1')
+
   }
 
   reset() {
     this.ngOnInit();
     this.imageUrls = [];
   }
+
+
+  openModal(id: string) {
+
+    // console.log(this.bikeService.modals);
+     if(this.bikeService.modals.length >1) {
+       this.bikeService.modals.splice(0,1);
+     }
+    // debugger;
+      const modal: any = this.bikeService.modals.filter(x => x.id === id)[0];
+     modal.open();
+
+   }
+
+   closeModal(id: string) {
+    // this.bikeService.addModelSubject.next(true);
+     let modal: any = this.bikeService.modals.filter(x => x.id === id)[0];
+     modal.close();
+   }
 }
 
 

@@ -9,10 +9,18 @@
     Add More Products
     <i class="arrow right mt-2"></i>
   </mat-card>
+
+
 </div> -->
 
 
-<div class="col-md-12" *ngIf="orderJSON.length !==0">
+<div *ngIf="this.orderJSON?.length ==0" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>No Orducts are Avalible</strong> Click below click.
+    <div class="alertMessage" [routerLink]="['/home']">Redirect to Home Page</div>
+  </div>
+
+
+<div class="col-md-12" *ngIf="this.orderJSON?.length !==0">
   <div class="row">
 
     <div class="col-md-11 mt-3">
@@ -49,9 +57,9 @@
 
                   <div class="col-md-3">Ordered Custom Cycle {{i + 1}}</div>
                   <div class="col-md-2">
-                      <input type="number"  style="width: 57%;" class="form-control"
+                      <input type="text"  style="width: 57%;" class="form-control"
                       id="productJson.quantity"
-                      [(ngModel)]="productJson.quantity" value= "productJson.quantity" (ngModelChange)="changeOrder(productJson.quantity,i,$event)" name="productJson[i].quantity">
+                      [(ngModel)]="productJson.quantity" value="getValue" (keypress)="restrictKeys($event)" (change)="modelChangeEvent($event,productJson.quantity,i)" name="productJson[i].quantity">
                   </div>
                   <div class="col-md-2">{{productJson.orderDate | date}}  </div>
                   <div class="col-md-1"> {{productJson.price}}</div>
@@ -60,7 +68,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div style="cursor: pointer;    float: right !important;">
-                    <button class="mybtn" (click)="removeItems(productJson,i)">Cancel Order</button>
+                    <button class="mybtn" (click)="openModal('custom-modal-1',productJson,i)">Cancel Order</button>
                     </div>
                   </div>
 
@@ -69,11 +77,10 @@
             </div>
           </div>
           <div class="col-md-12">
-            <mat-card class="cardwholesaler mt-3">
+            <mat-card class="cardwholesaler mt-3" [routerLink]="['/home']">
               Add More Products
               <i class="arrow right mt-2"></i>
             </mat-card>
-			<!-- Added Code -->
           </div>
 
         </div>
@@ -87,13 +94,15 @@
 
 
 
-
-<!--- welcome the order-->
-
-
-
-<!-- Copyright 2019 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
-
-
+<modal id="custom-modal-1">
+  <div class="modal">
+      <div class="modal-body">
+        <div class="modelCss">
+            <p><strong>Are you sure you want to delete  the order<span class="text-primary">"John Doe"</span> profile?</strong></p>
+        </div>
+          <button class="p-1 btn btn-secondary" (click)="closeModal('custom-modal-1');">Close</button>
+          <button  class="p-1 ml-4 btn btn-danger" (click)="deleteOrder(flag= true)">Delete</button>
+      </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { BikeserviceService } from 'src/app/services/bikeservice.service';
 
 @Component({
   selector: 'app-stpper',
@@ -14,9 +15,10 @@ export class StpperComponent implements OnInit {
 
 
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder,) {}
 
   ngOnInit() {
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
